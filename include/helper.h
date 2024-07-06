@@ -17,29 +17,6 @@ extern int num_daemons_g;
 
 extern Daemon *daemons_g;
 
-/*
-// TODO: why is it in while loop? 
-//#define HELP(FILE *out) do{ \
-#define HELP(FILE *out) \
-fprintf(out, "Available commands: %s, "\n" \
-"help (0 args) Print this help message\n" \
-"quit (0 args) Quit the program\n" \
-"register (0 args) Register a daemon\n" \
-"unregister (1 args) Unregister a daemon\n" \
-"status (1 args) Show the status of a daemon\n" \
-"status-all (0 args) Show the status of all daemons\n" \
-"start (1 args) Start a daemon\n" \
-"stop (1 args) Stop a daemon\n" \
-"logrotate (1 args) Rotate log files for a daemon\n"); \
-//} while(0)
-*/
-// I guess we need a structure for storing our daemons processes:typedef enum daemon_status  daemon_status; // TODO: is it right to do so? 
-/*
-extern enum daemon_status {
-    status_unknown, status_inactive, status_starting, status_active,
-    status_stopping, status_exited, status_crashed
-}
-*/
 //typedef enum daemon_status daemon_status;
 
 typedef struct daemon{
