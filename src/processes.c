@@ -336,63 +336,6 @@ int start_c(FILE *out, FILE *in, char * name){
     return -1; // error!
 }
 
-/* TODO: to unblock:
-
-if (sigprocmask(SIG_SETMASK, &prev_all, NULL) < 0) { // unblock
-                            perror("sigprocmask");
-                            exit(EXIT_FAILURE);
-}
-*/
-
-/* TODO: to block:
-
-if (sigprocmask(SIG_BLOCK, &mask_all, &prev_all) < 0) { // block
-                            perror("sigprocmask");
-                            exit(EXIT_FAILURE);
-                        }
-*/
-
-
-// The start_c logic: 
-
-            // STEP 2: Create a pipe                                                         ------> pipe(2) 
-            // pipe(2) to recieve a startup sunch meassage from a deamon
-    
-            // STEP 3: Fork a child process to run the daemon command
-            
-            // STEP 4: Arrange for stdout output of the shild process to be redirected to the appropriate log file:      ------> dup2(2)    ------>  freopen(3)
-       
-    // STEP 5: Make the child process use execvpe(3) to execute the command registered for daemon          ------> execvpe(3)
-    
-    // STEP 6: The enviroment passed to execvpe() should be the environment of legion.                    ------> environ(7)
-    
-    // *  except the value fo the PATH environment variable shoudl be modified: 
-    
-    // Modify the PATH variable of the environment:                        ------> getenv(3)      ------> putenv(3)     ------> setenv(3)
-    
-    // by prepending the value of the SERVERS_DIR preprocessor symbol
-    
-    // separated with ':' of the prepended directory name from existing list
-    
-    // STEP 7: After the child process has started: // STEP 5: Make the child process use execvpe(3) to execute the command registered for daemon          ------> execvpe(3)
-    
-    // STEP 6: The enviroment passed to execvpe() should be the environment of legion.                    ------> environ(7)
-    
-    // *  except the value fo the PATH environment variable shoudl be modified: 
-    
-    // Modify the PATH variable of the environment:                        ------> getenv(3)      ------> putenv(3)     ------> setenv(3)
-    
-    // by prepending the value of the SERVERS_DIR preprocessor symbol
-    
-    // separated with ':' of the prepended directory name from existing list
-    
-    // * before calling the execvpe() it should use the setgpid() to create and join a new process group        ------> setgpid(2)
-    // * To not recieve any signals from terminal
-    
-    // STEP 8: Should also redirect the output side of the pipe that was created before fork to the file descriptor SYNC_FD
-    
-    // STEP 9: Daemon executanel writes a one-byte sunch message onto the pipe where it can be read in the parent process
-    
 // Method that attemts to stop a daemon:    
 int stop_c(FILE *in, FILE *out, char* name){
     Daemon *daemon = find_daemon(name);
