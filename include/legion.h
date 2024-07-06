@@ -1,15 +1,4 @@
-/**
- * === DO NOT MODIFY THIS FILE ===
- * If you need some other prototypes or constants in a header, please put them
- * in another header file.
- *
- * When we grade, we will be replacing this file with our own copy.
- * You have been warned.
- * === DO NOT MODIFY THIS FILE ===
- */
 
-//#ifndef LEGION_H // TODO: !!!!!!!!!!!!!!!!!!!!!!! if I dont add it it throws errors, what can I do to avoid it? 
-//#define LEGION_H
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
