@@ -1,7 +1,7 @@
 #ifndef HELPER_H
 #define HELPER_H
 
-#ifndef LEGION_H // TODO: !!!!!!!!!!!!!!!!!!!!!!! if I dont add it it throws errors, what can I do to avoid it? 
+#ifndef LEGION_H  
 #define LEGION_H
 #include "legion.h"
 #endif
